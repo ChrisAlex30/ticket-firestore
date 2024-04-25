@@ -11,7 +11,7 @@ const Loadingdialog = ({isloading}) => {
         setloading('hide')
     },[isloading])
   return (
-    <div className={`spinner-container ${loading} fixed md:absolute`}>
+    <div className={`spinner-container ${loading} fixed md:absolute z-50`}>
         <div className='loading-spinner'>
 
         </div>

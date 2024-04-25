@@ -139,7 +139,7 @@ app.post('/api/emp/addTicket', upload.array('files'), authenticateJwt, async (re
                 });
         
                 uploadTask.on('error', (error) => {
-                    console.error('Upload failed:', error);
+                    return res.status(401).json({ msg: "Error Storing data" });
                     reject(error);
                 });
         
@@ -149,8 +149,8 @@ app.post('/api/emp/addTicket', upload.array('files'), authenticateJwt, async (re
                         expires: '03-09-2500'
                     }, (error, url) => {
                         if (error) {
-                            console.error('Error getting download URL:', error);
-                            reject(error);
+                            return res.status(401).json({ msg: "Error getting download URL" });
+                            reject(error); 
                         } else {
                             console.log(url);
                             uploadedFiles.push(url);
